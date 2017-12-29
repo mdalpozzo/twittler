@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
     <script src="jquery.js"></script>
     <script id='data' src="data_generator.js"></script>
+    <script type="text/javascript" src="js/twit.js" async></script>
   </head>
+
   <body>
     <!-- Twittler logo / domain navigation -->
     <header>
@@ -34,133 +37,11 @@
     <div class='mainfeed'>
       
     </div>
-    <script>
 
-      $(document).ready(function(){
-        $('header img').css({'display': 'inline'});
-        $('h1').css({'display': 'inline', 'text-align': 'center', 'margin': 'auto', 'width': '100%'});
+    <!-- TIME LINE -->
+    <div class='timeline'>
 
-        var $body = $('body');
-        var $mainfeed = $('.mainfeed');
-        var $friendlist = $('#friendlist');
-        var $toolbar = $('.toolbar');
-
-        $('.sidebar').css({'background-color': 'blue', 'float': 'left', 'box-sizing': 'border-box'}).width('20%').show();
-        $toolbar.find('nav').css({
-          'display': 'inline-block',
-          'width': '20em'
-        });
-        $toolbar.find('ul').css({
-          'display': 'inline-block',
-          'width': '20em'
-        });
-        $toolbar.find('li').css({
-          'display': 'inline-block',
-          'font-size': '1.5em',
-          'border': '1px solid black',
-          'box-sizing': 'border-box',
-          'padding': '.5em .5em 0 .5em',
-          'vertical-align': 'middle'
-        });
-
-        $mainfeed.css({'background-color': 'light blue',
-          'float': 'right',
-          'border': '2px solid black',
-          'box-sizing': 'border-box',
-          }).width('75%').show();
-
-        $friendlist.css({
-          'list-style-type': 'none'
-        });
-
-        $friendlist.children('li').css({
-          'border': '1px solid black'
-
-        });
-
-
-        $mainfeed.animate({top: '-215px'});
-
-        $.each(streams.users, function(key, element) {
-          $friendlist.append('<li><button>'+key+'</button></li>').css({
-            'background-color': 'pink',
-            'border': '1px solid black'
-          });
-        });
-
-        var startingTweetCount = streams.home.length;
-        //show initial tweets
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $("<div class='tweet'></div>");
-          $tweet.append("<p class='message'>@" + tweet.user + ": " + tweet.message + "</p><p class='postTime'>" + tweet.created_at + "</p>");
-          $tweet.appendTo($mainfeed);
-          $('.mainfeed .message').css({'background-color': 'pink',
-                                        'opacity': '0.75',
-                                        'border-radius': '0.75',
-                                        'display': 'inline'
-                                     });
-          $('.postTime').css({'font-size': '.5em',
-                              'display': 'inline'
-                            });
-          $('.tweet').css({
-                'height': '1.5em',
-                'border': '1px solid black'
-              });
-
-          index -= 1;
-        }
-
-        //update every x seconds to show any new tweets if there are any
-        var updateTweets = function() {
-          var currentTweetCount = streams.home.length;
-          if (currentTweetCount > startingTweetCount) {
-            for (var i = startingTweetCount; i < currentTweetCount; i++) {
-              var tweet = streams.home[i];
-              var $tweet = $("<div class='tweet'></div>");
-              $tweet.append("<p class='message'>@" + tweet.user + ": " + tweet.message + "</p><p class='postTime'>" + tweet.created_at + "</p>");
-              $tweet.prependTo($mainfeed)
-              $('.mainfeed .message').css({'background-color': 'pink',
-                      'opacity': '0.75',
-                      'border-radius': '0.75',
-                      'display': 'inline'
-                    });
-              $('.postTime').css({'font-size': '.5em',
-                              'display': 'inline'
-                            });
-              $('.tweet').css({
-                'height': '1.5em',
-                'border': '1px solid black'
-              });
-            }
-          }
-
-          
-          //hide old tweets at bottom of feed
-          //if current tweet count is > n, remove last n number of <p> in main feed
-          /*
-          if (currentTweetCount > 13) {
-            var surplusTweetCount = currentTweetCount - 13;
-            for (var i = 0; i < surplusTweetCount; i++) {
-              $('.mainfeed:last-child').hide();
-            }
-          }
-          */
-
-          //reset starting TweetCount
-          startingTweetCount = currentTweetCount;
-        }
-
-        setInterval(updateTweets, 1000);
-
-        $friendlist.find('button').on('click', function() {
-          alert(streams.users.shawndrost[0].message);
-
-        });
-      });
-
-    </script>
+    </div>
 
     <footer>
       

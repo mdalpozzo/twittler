@@ -1,0 +1,90 @@
+
+/* logo and title */
+h1 {
+	display: inline;
+	text-align: center;
+	margin: auto;
+	width: 100%;
+}
+
+header img {
+	display: inline;
+}
+
+/* tool bar */
+.toolbar nav {
+	display: inline;
+    width: 20em;
+}
+
+.toolbar ul {
+	display: inline-block;
+	width: 20em;
+}
+
+.toolbar li {
+	display: inline-block;
+	font-size: 1.5em;
+	border: 1px solid black;
+	box-sizing: border-box;
+	padding: .5em .5em 0 .5em;
+	vertical-align: middle;
+}
+
+/* sidebar and friends etc */
+.sidebar {
+	background-color: blue;
+	float: left;
+	box-sizing: border-box;
+	width: 20%;
+}
+
+#friendlist li {
+	list-style: none;
+}
+
+/* main tweet feed */
+.mainfeed {
+	float: right;
+	box-sizing: border-box;
+	width: 75%
+}
+
+.mainfeed .tweet {
+	display: block;
+	background-color: pink;
+	border-radius: 25px;
+	height: 3em;
+}
+
+.mainfeed .message {
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid black;
+
+}
+
+.mainfeed .postTime {
+	font-size: .5em;
+	display: block;
+	border: 1px solid black;
+}
+
+/* timeline */
+.timeline {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 75%;
+	height: 75%;
+	z-index: 99;
+	background-color: rgba(211, 211, 211, .9);
+	display: none;
+}
+
+.tweet .timeline {
+
+}
