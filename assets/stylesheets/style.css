@@ -93,6 +93,15 @@ header img {
 	display: inline-block;
 	height: 2.75rem;
 	width: 2.75rem;
+	margin-left: 7.2rem;
+}
+
+header input {
+	display: inline-block;
+	width: 25%;
+	height: 1.25rem;
+	position:relative;
+	top: -1rem;
 }
 
 .footer {
