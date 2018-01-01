@@ -4,47 +4,57 @@
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
     <script src="jquery.js"></script>
     <script id='data' src="data_generator.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script type="text/javascript" src="js/twit.js" async></script>
+    <title>Twittler</title>
   </head>
 
   <body>
     <!-- Twittler logo / domain navigation -->
     <header>
-      <img src='img1.jpg' height='40em' width='40em'>
-      <h1>TWITTLER</h1>
+      <img src='images/img1.jpg'>
+      <!-- <h1>TWITTLER</h1> -->
     </header>
 
-    <!-- Profile picture / navigation / tools -->
-    <div class='toolbar'>
-      <img src='img2.jpg' height='100em' width='100em'>
-      <nav>
-        <ul>
-          <li><a href=''>Profile</a></li>
-          <li><a href=''>Friends</a></li>
-          <li><a href=''>Settings</a></li>
+    <div class='mainpage'>
+      <!-- Profile picture / navigation / tools -->
+      <div class='toolbar'>
+        <img src='images/img2.jpg' id='profilepic'>
+        <nav>
+          <ul>
+            <li><a href=''><img src="images/settings.jpg" id='settingsicon'></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- SIDEBAR FRIENDS ETC -->
+      <div class='sidebar'>
+        <h3>FRIENDS</h3>
+        <ul id='friendlist'>
         </ul>
-      </nav>
+      </div>
+
+      <!-- MAIN FEED -->
+      <div class='mainfeed'>
+        <div id=tweetIn>
+          <p>What's on your mind??</p>
+          <input id='newTweet' type='text'>
+          <button>Tweet!</button>
+        </div>
+        <div class='feed'>
+        </div>
+      </div>
+
+      <!-- TIME LINE -->
+      <div class='timeline'>
+
+      </div>
+
+      <div class='push'></div>
     </div>
 
-    <!-- SIDEBAR FRIENDS ETC -->
-    <div class='sidebar'>
-      <h3>FRIENDS</h3>
-      <ul id='friendlist'>
-      </ul>
+    <div class='footer'>
+      <p>&copy;Twittler Inc.</p>
     </div>
-
-    <!-- MAIN FEED -->
-    <div class='mainfeed'>
-      
-    </div>
-
-    <!-- TIME LINE -->
-    <div class='timeline'>
-
-    </div>
-
-    <footer>
-      
-    </footer>
   </body>
 </html>

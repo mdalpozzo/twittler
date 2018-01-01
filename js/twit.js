@@ -8,8 +8,9 @@ $(document).ready(function(){
 
 
         $.each(streams.users, function(key, element) {
-          $friendlist.append('<li><button>'+key+'</button></li>');
-          $friendlist.find('button').last().attr('user', key);
+          $friendlist.append("<li class='friend'>@"+key+"</li>");
+          $friendlist.find('li:last-child').attr('user', key);
+          $friendlist.find('li:last-child').prepend("<img src='images/"+key+".jpg'>")
         });
 
         var startingTweetCount = streams.home.length;
@@ -18,7 +19,7 @@ $(document).ready(function(){
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $("<div class='tweet'></div>");
-          $tweet.append("<p class='message'>@" + tweet.user + ": " + tweet.message + "</p><p class='postTime'>" + tweet.created_at + "</p>");
+          $tweet.append("<p class='tweetUser'>@" + tweet.user + "</p><p class='tweetMessage'>" + tweet.message + "</p><p class='tweetTime'>" + tweet.created_at + "</p>");
           $tweet.appendTo($mainfeed);
           
           index -= 1;
@@ -31,8 +32,8 @@ $(document).ready(function(){
             for (var i = startingTweetCount; i < currentTweetCount; i++) {
               var tweet = streams.home[i];
               var $tweet = $("<div class='tweet'></div>");
-              $tweet.append("<p class='message'>@" + tweet.user + ": " + tweet.message + "</p><p class='postTime'>" + tweet.created_at + "</p>");
-              $tweet.prependTo($mainfeed);
+              $tweet.append("<p class='tweetUser'>@" + tweet.user + "</p><p class='tweetMessage'>" + tweet.message + "</p><p class='tweetTime'>" + tweet.created_at + "</p>");
+              $('#tweetIn').after($tweet);
             }
           }
 
@@ -55,7 +56,7 @@ $(document).ready(function(){
         setInterval(updateTweets, 1000);
 
         //show timeline of friend when name is clicked (to do: show number of total tweets)
-        $friendlist.find('button').on('click', function() {
+        $friendlist.on('click', '.friend', function() {
           if ($timeline.is(":hidden")) {
             var user = $(this).attr('user');
             var tweets = streams.users[user];

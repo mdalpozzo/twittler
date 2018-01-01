@@ -1,50 +1,181 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 
 /* logo and title */
-h1 {
-	display: inline;
-	text-align: center;
-	margin: auto;
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	position: relative;
+	background-color: #f6ffff;
+}
+
+.mainpage {
+	width: 84%;
+	/*sticky footer*/
+	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -3rem;
+}
+
+header {
+	background-color: #ffbbbb;
+	position: fixed;
+	top: 0;
 	width: 100%;
+	display: block;
+	box-shadow: 0 .05rem .2rem #444444ab;
+	height: 2.75rem;
+}
+
+header h1 {
+	display: inline-block;
+	font-size: 1.5rem;
 }
 
 header img {
-	display: inline;
+	display: inline-block;
+	height: 2.75rem;
+	width: 2.75rem;
+}
+
+.footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	transform: translateY(100%);
+}
+
+.footer, .push {
+	height: 3rem;
 }
 
 /* tool bar */
+.toolbar {
+	background-color: #aaaaaa;
+	display: block;
+	margin-top: 2.75rem;
+	height: 5rem;
+}
 .toolbar nav {
-	display: inline;
-    width: 20em;
+	display: inline-block;
+	margin-top: 2.5rem;
+    width: 5rem;
+    float: right;
+    vertical-align: bottom;
 }
 
 .toolbar ul {
 	display: inline-block;
-	width: 20em;
+	width: 5rem;
+	border-top: .2rem solid black;
+	border-left: .2rem solid black;
+	border-right: .2rem solid black;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	text-align: center;
+	float: right;
 }
 
 .toolbar li {
 	display: inline-block;
-	font-size: 1.5em;
-	border: 1px solid black;
+	font-size: 1.5rem;
+	text-decoration: none;
 	box-sizing: border-box;
-	padding: .5em .5em 0 .5em;
-	vertical-align: middle;
+	padding: .5rem .5rem 0 .5rem;
+	vertical-align: bottom;
+	margin: auto;
 }
 
-/* sidebar and friends etc */
-.sidebar {
-	background-color: blue;
-	float: left;
-	box-sizing: border-box;
-	width: 20%;
+.toolbar li a {
+	text-decoration: none;
 }
 
-#friendlist li {
-	list-style: none;
+#profilepic {
+	width: 5rem;
+	height: 5rem;
 }
 
+#settingsicon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
 /* main tweet feed */
+#tweetIn {
+	background-color: #bbbbff;
+	padding: .5rem 0 1rem 1rem;
+	padding-left: 1rem;
+}
+
+#tweetIn p {
+	position: relative;
+	top: 1rem;
+	color: #aaaaaa;
+	background-color: #ffffff00;
+}
+
+#tweetIn input {
+	width: 20rem;
+}
+
 .mainfeed {
+	background-color: #aaffaa;
 	float: right;
 	box-sizing: border-box;
 	width: 75%
@@ -52,22 +183,60 @@ header img {
 
 .mainfeed .tweet {
 	display: block;
-	background-color: pink;
+	background-color: #ffbbcc88;
 	border-radius: 25px;
-	height: 3em;
+	height: 3rem;
 }
 
-.mainfeed .message {
+.mainfeed .tweetUser {
+	font-family: 'Oswald', sans-serif;;
+	font-style: bold;
+	margin: .5rem auto .4rem 2rem;
+}
+
+.mainfeed .tweetMessage {
 	display: inline-block;
 	vertical-align: middle;
-	border: 1px solid black;
-
+	margin: auto auto .4rem 2rem;
 }
 
-.mainfeed .postTime {
-	font-size: .5em;
+.mainfeed .tweetTime {
+	font-size: .75rem;
+	display: inline-block;
+	color: #aaaaaa;
+	margin: auto auto .4rem 1rem;
+}
+
+/* sidebar and friends etc */
+.sidebar {
+	background-color: #ffffff;
+	float: left;
+	box-sizing: border-box;
+	width: 20%;
+	box-shadow: 0 .2rem .7rem 0 #00000040, 0 .4rem 1.6rem 0 #00000030;
+}
+
+#friendlist ul {
+	margin: 0 auto;
+}
+
+#friendlist li {
+	list-style: none;
 	display: block;
-	border: 1px solid black;
+	padding: 1rem 0 1rem 0;
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-family: 'Oswald', sans-serif;
+	width: 80%;
+	margin: .2rem auto;
+	border-bottom: .1rem solid #dddddd;
+}
+
+#friendlist li img {
+	display: inline-block;
+	height: 3rem;
+	width: 3rem;
+	vertical-align: middle;
 }
 
 /* timeline */
@@ -77,12 +246,13 @@ header img {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin: auto;
-	width: 75%;
+	margin: auto auto auto 20rem;
+	width: 50%;
 	height: 75%;
 	z-index: 99;
-	background-color: rgba(211, 211, 211, .9);
+	background-color: #bbbbbbee;
 	display: none;
+	box-shadow: -.75rem -.5rem 1rem #44444488;
 }
 
 .tweet .timeline {
